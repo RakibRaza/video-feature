@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { resetFilter } from "../../features/filter/filterSlice";
 import { fetchTags } from "../../features/tags/tagsSlice";
 import Tag from "./Tag";
 
@@ -17,6 +18,9 @@ export default function Tags() {
                 {tags.map((tag) => (
                     <Tag key={tag.id} title={tag.title} />
                 ))}
+                <button onClick={() => dispatch(resetFilter())} className="bg-sky-500 hover:bg-sky-700 ml-auto p-2 rounded text-white">
+                    Reset Filter
+                </button>
             </div>
         </section>
     ) : null;
